@@ -1,12 +1,28 @@
 <template>
-  <div class="syrup"></div>
+  <div class="syrup" :style="syrupStyle"></div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from "vue";
+import { currentSyrup } from "../stores/beverage";
+
+const syrupStyle = computed(() => {
+  const color = currentSyrup.value.color;
+  return {
+    background: `repeating-linear-gradient(
+      45deg,
+      white,
+      white 10px,
+      ${color} 10px,
+      ${color} 20px
+    )`,
+  };
+});
+</script>
+
 <style lang="scss" scoped>
 .syrup {
   transform: translateY(400%);
-  background-color: #c6c6c6;
   position: relative;
   width: 100%;
   height: 20%;
