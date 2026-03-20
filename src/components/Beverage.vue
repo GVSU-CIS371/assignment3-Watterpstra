@@ -3,12 +3,10 @@
     <Cold v-if="isIced" />
     <Hot v-else />
     <Contents>
-      <!-- Task 3: only show creamer if one is selected -->
       <template v-slot:top>
         <Creamer v-if="currentCreamer.id !== 'c1'" />
       </template>
 
-      <!-- Task 3: only show syrup if one is selected -->
       <template v-slot:mid>
         <Syrup v-if="currentSyrup.id !== 's1'" />
       </template>
